@@ -25,10 +25,17 @@ spec:
             name: httpd
             port:
               number: 80
+       - path: /game(/|$)(.*)
+        pathType: Prefix
+        backend:
+          service:
+            name: game
+            port:
+              number: 80
       - path: /(.*)
         pathType: Prefix
         backend:
           service:
-            name: nginx
+            name: error-service
             port:
               number: 80
